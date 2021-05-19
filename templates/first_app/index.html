@@ -5,14 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>mt.dhaulagiri</title>
+    <title>mt.dhaulagiri/lvl 2</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
 </head>
 <body>
-    <h1>Hello this is index.html</h1>
-    <img src="{% static "images/dhaulagirivector.jpg" %}" alt="no photo">
+    <!-- <h1>Hello this is index.html</h1>
+    <img src="{% static "images/dhaulagirivector.jpg" %}" alt="no photo"> -->
     <!--
     <h2>Mt. Dhaulagiri</h2>
-   
     -->
+    <h1>LVL 2 lets goooo</h1>
+    <em>All the access records</em>
+    <div class="lvl2">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Accessed date</th>
+                </thead>
+                <tbody>
+                    {% for acc in access_records %}
+                        <tr>
+                            <td>{{acc.name}}</td>
+                            <td>{{acc.date}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No access records found</p>
+        {% endif %}
+    </div>
+
 </body>
 </html>
