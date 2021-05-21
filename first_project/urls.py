@@ -25,5 +25,7 @@ urlpatterns = [
     #url('^$', views.index2, name = 'index2'),
     url('^newextension/',include('first_app.urls')),
     url('^$',views.index, name = 'index'),
+    url('^datab/', views.dbdb, name = 'dbdb'),
+    url(r'^formpage/', views.form_view, name = 'formm'),
     path('admin/', admin.site.urls),
 ]
