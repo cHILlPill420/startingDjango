@@ -15,6 +15,12 @@ def dbdb(request):
 
 def form_view(request):
     form = forms.FormNorm()
+    if request.method == 'POST':
+        form = forms.FormNorm(request.POST)
+        if form.is_valid():
+            print('Validation successful')
+            print('NAME: '+form.cleaned_data['name'])
+            print('TEXT: '+form.cleaned_data['text'])
     return render(request, 'first_app/form.html', {'form':form})
 #def index2(request):
     #return HttpResponse("<em> 2nd index </em>")
