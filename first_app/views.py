@@ -20,6 +20,7 @@ def form_view(request):
         if form.is_valid():
             print('Validation successful')
             print('NAME: '+form.cleaned_data['name'])
+            print('EMAIL: '+form.cleaned_data['email'])
             print('TEXT: '+form.cleaned_data['text'])
     return render(request, 'first_app/form.html', {'form':form})
 #def index2(request):
