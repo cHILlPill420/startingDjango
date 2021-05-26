@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import AccessRecord, Topic, Webpage
-from . import forms
+#from . import forms
+from first_app.forms import NewSite
 # Create your views here.
 
 def index(request):
@@ -14,14 +15,22 @@ def dbdb(request):
     return render(request, 'first_app/datafromdb.html', context = date_dict)
 
 def form_view(request):
-    form = forms.FormNorm()
-    if request.method == 'POST':
-        form = forms.FormNorm(request.POST)
+    form = NewSite()
+    if request.method == "POST":
+        form = NewSite(request.POST)
         if form.is_valid():
-            print('Validation successful')
-            print('NAME: '+form.cleaned_data['name'])
-            print('EMAIL: '+form.cleaned_data['email'])
-            print('TEXT: '+form.cleaned_data['text'])
+            form.save(commit = True)
+            return index(request)
+        raise forms.ValidationError("Not valid")
+
+    # form = forms.FormNorm()
+    # if request.method == 'POST':
+    #     form = forms.FormNorm(request.POST)
+    #     if form.is_valid():
+    #         print('Validation successful')
+    #         print('NAME: '+form.cleaned_data['name'])
+    #         print('EMAIL: '+form.cleaned_data['email'])
+    #         print('TEXT: '+form.cleaned_data['text'])
     return render(request, 'first_app/form.html', {'form':form})
 #def index2(request):
     #return HttpResponse("<em> 2nd index </em>")
