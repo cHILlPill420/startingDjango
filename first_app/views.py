@@ -43,3 +43,6 @@ def form_view(request):
 #             return index(request)
 #         raise forms.ValidationError("invalid")
 #     return render(request, 'first_app/form.html', {'form2':form2})
+
+def relative(request):
+    return render(request, 'first_app/relative_url_templates.html')
