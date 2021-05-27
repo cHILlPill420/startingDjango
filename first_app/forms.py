@@ -1,12 +1,15 @@
 from django import forms
 #from django.core import validators
-from first_app.models import Webpage
+from first_app.models import Webpage, AccessRecord
 class NewSite(forms.ModelForm):
     class Meta:
         model = Webpage
         fields = "__all__"
 
-
+class NewRecord(forms.ModelForm):
+    class  Meta:
+        model = AccessRecord
+        fields = ('date',)
 #custom validator
 # def check_name(value):
 #     if value[0] == '0' or value[0] == '1' or value[0] == '2' or value[0] == '3' or value[0] == '4' or value[0] == '5' or value[0] == '6' or value[0] == '7' or value[0] == '8' or value[0] == '9':

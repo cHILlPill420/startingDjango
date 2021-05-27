@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import AccessRecord, Topic, Webpage
 #from . import forms
-from first_app.forms import NewSite
+from first_app.forms import NewSite, NewRecord
 # Create your views here.
 
 def index(request):
@@ -34,3 +34,12 @@ def form_view(request):
     return render(request, 'first_app/form.html', {'form':form})
 #def index2(request):
     #return HttpResponse("<em> 2nd index </em>")
+
+# def form_view_date(request):
+#     form2 = NewRecord()
+#     if request.method == "POST":
+#         if form2.is_valid():
+#             form2.save(commit = True)
+#             return index(request)
+#         raise forms.ValidationError("invalid")
+#     return render(request, 'first_app/form.html', {'form2':form2})

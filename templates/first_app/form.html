@@ -9,6 +9,7 @@
 <body>
     <form method="POST">
         {{form.as_p}}
+        <!-- {{form2.as_p} -->
         {% csrf_token %}
         <input type="submit" value="Submit">
     </form>
