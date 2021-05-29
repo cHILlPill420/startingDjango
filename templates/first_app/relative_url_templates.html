@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+{% extends "first_app/base.html" %}
+{% block body_block %}
+    <h1>THIS IS RELATIVE URL</h1>
+    <a href="{% url 'first_app:dbdb' %}">Database</a></br>
+    <a href="{% url 'admin:index' %}">Admin</a></br>
+    <a href="{% url 'index' %}">Index</a>
+{% endblock %}
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,4 +19,4 @@
     <a href="{% url 'admin:index' %}">Admin</a></br>
     <a href="{% url 'index' %}">Index</a>
 </body>
-</html>
+</html> -->

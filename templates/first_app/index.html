@@ -1,6 +1,12 @@
 <!DOCTYPE html>
+{% extends "first_app/base.html" %}
 {% load static %}
-<html lang="en">
+{% block body_block %}
+    <h1>Hello this is index.html</h1>
+    <img src="{% static "images/dhaulagirivector.jpg" %}" alt="no photo">
+    <h2>Mt. Dhaulagiri</h2>
+{% endblock %}
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,4 +19,4 @@
     <img src="{% static "images/dhaulagirivector.jpg" %}" alt="no photo">
     <h2>Mt. Dhaulagiri</h2>
 </body>
-</html>
+</html> -->
