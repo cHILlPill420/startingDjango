@@ -6,7 +6,7 @@ from first_app.forms import NewSite, NewRecord
 # Create your views here.
 
 def index(request):
-    my_dict = {'insert_me' : "hello I'm from views.py html=firstapp/index!"}
+    my_dict = {'insert_me' : "hello I'm from views.py html=firstapp/index!", 'number': 10}
     return render(request, 'first_app/index.html', context = my_dict)
 
 def dbdb(request):    

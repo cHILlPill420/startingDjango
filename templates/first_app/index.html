@@ -5,6 +5,9 @@
     <h1>Hello this is index.html</h1>
     <img src="{% static "images/dhaulagirivector.jpg" %}" alt="no photo">
     <h2>Mt. Dhaulagiri</h2>
+    <!--built in temp filters-->
+    {{ insert_me|cut:"I'm" }}
+    {{ number|add:"90" }}
 {% endblock %}
 <!-- <html lang="en">
 <head>
