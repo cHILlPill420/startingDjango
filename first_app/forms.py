@@ -1,15 +1,27 @@
 from django import forms
+from django.contrib.auth.models import User
 #from django.core import validators
-from first_app.models import Webpage, AccessRecord
+from first_app.models import Webpage, UserProfileInfo
 class NewSite(forms.ModelForm):
     class Meta:
         model = Webpage
         fields = "__all__"
 
-class NewRecord(forms.ModelForm):
-    class  Meta:
-        model = AccessRecord
-        fields = ('date',)
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget = forms.PasswordInput())
+    class Meta:
+        model = User
+        fields = ('username','email','password')
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfileInfo
+        fields = ('portfolio_site','profile_pic')
+
+# class NewRecord(forms.ModelForm):
+#     class  Meta:
+#         model = AccessRecord
+#         fields = ('date',)
 #custom validator
 # def check_name(value):
 #     if value[0] == '0' or value[0] == '1' or value[0] == '2' or value[0] == '3' or value[0] == '4' or value[0] == '5' or value[0] == '6' or value[0] == '7' or value[0] == '8' or value[0] == '9':

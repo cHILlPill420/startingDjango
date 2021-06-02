@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 #Create your models here.
 class Topic(models.Model):
@@ -18,3 +19,15 @@ class AccessRecord(models.Model):
     date = models.DateField()
     def __str__(self):
         return str(self.date)
+
+#User Models
+class UserProfileInfo(models.Model):
+    #User provides all fields like username,firstname, lastname, etc
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    #one to one field lets you add other fields for the User
+    #additional fields
+    portfolio_site = models.URLField(blank = True, unique = True)
+    profile_pic = models.ImageField(upload_to = 'profile_pics', blank = True)
+
+    def __str__(self):
+        return self.user.username

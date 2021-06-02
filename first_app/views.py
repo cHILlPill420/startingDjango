@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import AccessRecord, Topic, Webpage
 #from . import forms
-from first_app.forms import NewSite, NewRecord
+from first_app.forms import NewSite
 # Create your views here.
 
 def index(request):
