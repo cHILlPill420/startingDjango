@@ -8,4 +8,5 @@ urlpatterns = [
     url('^datab/$', views.dbdb, name = 'dbdb'),
     url(r'^formpage/$', views.form_view, name = 'formm'),
     url(r'^relative/$', views.relative, name = 'relative'),
+    url(r'^register/$', views.register, name = 'register'),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import AccessRecord, Topic, Webpage
 #from . import forms
-from first_app.forms import NewSite
+from first_app.forms import NewSite, UserForm, UserProfileForm
 # Create your views here.
 
 def index(request):
@@ -46,3 +46,35 @@ def form_view(request):
 
 def relative(request):
     return render(request, 'first_app/relative_url_templates.html')
+
+def register(request):
+    registered = False
+
+    if request.method == "POST":
+        user_form = UserForm(data = request.POST)
+        profile_form = UserProfileForm(data = request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            
+            user = user_form.save()
+            user.set_password(user.password) #settings.py-> PASSWORD_HASHER & validators used
+            user.save()
+            
+            profile = profile_form.save(commit = False) #False because we want to perform task like relating one to one with user, True lets it directly save to database
+            profile.user = user #relating profile and user in one to one fashion
+
+            if 'profile_pic' in request.FILES:
+                profile.profile_pic = request.FILES['profile_pic']
+            profile.save()
+            registered = True
+        else:
+           print(user_form.error,profile_form.error)
+
+    else:
+        user_form = UserForm()
+        profile_form = UserProfileForm()
+
+    return render(request, 'first_app/registration.html',
+                            {'user_form':user_form,
+                             'profile_form':profile_form,
+                             'registered':registered})
