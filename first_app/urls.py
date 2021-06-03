@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^formpage/$', views.form_view, name = 'formm'),
     url(r'^relative/$', views.relative, name = 'relative'),
     url(r'^register/$', views.register, name = 'register'),
+    url(r'^login/$', views.user_login, name = 'loginn' ),
+    
 ]

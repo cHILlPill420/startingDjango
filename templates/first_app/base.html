@@ -15,10 +15,16 @@
             <ul class="nav navbar-nav">
                 <li><a class="navbar-brand" href="{% url 'index' %}">Brand</a></li>
                 <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-                <li><a class="navbar-link" href="{% url 'first_app:formm' %}">Sign in</a></li>
+                <li><a class="navbar-link" href="{% url 'first_app:formm' %}">Signin</a></li>
                 <li><a class="navbar-link" href="{% url 'first_app:dbdb' %}">Database</a></li>
                 <li><a class="navbar-link" href="{% url 'first_app:relative' %}">Relative Template</a></li>
                 <li><a class="navbar-link" href="{% url 'first_app:register' %}">Sign Up</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'logoutt' %}">Logout</a></li>
+                {% else %}
+                    <li><a class="navbar-link" href="{% url 'first_app:loginn' %}">Login </a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

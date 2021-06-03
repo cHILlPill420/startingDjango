@@ -26,4 +26,6 @@ urlpatterns = [
     url('^$',views.index, name = 'index'),
     url('^first_app/',include('first_app.urls')),
     path('admin/', admin.site.urls),
+    url(r'^logout/$', views.user_logout, name = 'logoutt'),
+    url(r'^special/$', views.special, name = 'special'),
 ]
