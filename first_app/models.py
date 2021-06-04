@@ -20,7 +20,7 @@ class AccessRecord(models.Model):
     def __str__(self):
         return str(self.date)
 
-#User Models
+#User Models/ Registration
 class UserProfileInfo(models.Model):
     #User provides all fields like username,firstname, lastname, etc
     user = models.OneToOneField(User, on_delete = models.CASCADE)

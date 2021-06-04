@@ -6,6 +6,10 @@ from first_app.forms import NewSite, UserForm, UserProfileForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+
+#for classbasedview
+from django.views.generic import View
+
 # Create your views here.
 
 def index(request):
@@ -110,3 +114,8 @@ def user_logout(request):
 @login_required
 def special(request):
     return HttpResponse('Logged in yo')
+
+#Class based view
+class CBView(View):
+    def get(self, request):
+        return HttpResponse("Class Based Views")
