@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 #for classbasedview
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 
 # Create your views here.
 
@@ -119,3 +119,11 @@ def special(request):
 class CBView(View):
     def get(self, request):
         return HttpResponse("Class Based Views")
+
+class TempCBView(TemplateView):
+    template_name = 'first_app/cbv.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context={'inject_me': 'Injection'}
+        return context

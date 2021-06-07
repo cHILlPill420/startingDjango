@@ -28,4 +28,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^logout/$', views.user_logout, name = 'logoutt'),
     url(r'^special/$', views.special, name = 'special'),
+
 ]

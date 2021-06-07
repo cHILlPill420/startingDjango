@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^relative/$', views.relative, name = 'relative'),
     url(r'^register/$', views.register, name = 'register'),
     url(r'^login/$', views.user_login, name = 'loginn' ),
-    url(r'^cbview/$', views.CBView.as_view(), name = 'CBview')
+    url(r'^cbview/$', views.CBView.as_view(), name = 'CBview'),
+    url(r'^tempcbv/$', views.TemplateView.as_view(template_name = 'first_app/cbv.html'), name = 'tempcbv'),
 ]
